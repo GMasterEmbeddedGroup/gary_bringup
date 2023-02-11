@@ -1,0 +1,5 @@
+diagnose_topic: /diagnostics
+monitored_can_bus:
+- can3-2-3
+- can3-2-4
+update_freq: 10.0
