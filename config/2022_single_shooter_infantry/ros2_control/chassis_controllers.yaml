@@ -2,8 +2,8 @@
   ros__parameters:
     command_interface: chassis_left_front/effort
     state_interface: chassis_left_front/velocity
-    kp: 515.778
-    ki: 0.3438
+    kp: 1.0
+    ki: 0.003
     kd: 0.0
     max_out: 6.0
     max_iout: 0.75
@@ -12,8 +12,8 @@
   ros__parameters:
     command_interface: chassis_left_back/effort
     state_interface: chassis_left_back/velocity
-    kp: 515.778
-    ki: 0.3438
+    kp: 1.0
+    ki: 0.003
     kd: 0.0
     max_out: 6.0
     max_iout: 0.75
@@ -22,8 +22,8 @@
   ros__parameters:
     command_interface: chassis_right_front/effort
     state_interface: chassis_right_front/velocity
-    kp: 515.778
-    ki: 0.3438
+    kp: 1.0
+    ki: 0.003
     kd: 0.0
     max_out: 6.0
     max_iout: 0.75
@@ -32,8 +32,8 @@
   ros__parameters:
     command_interface: chassis_right_back/effort
     state_interface: chassis_right_back/velocity
-    kp: 515.778
-    ki: 0.3438
+    kp: 1.0
+    ki: 0.003
     kd: 0.0
     max_out: 6.0
     max_iout: 0.75
