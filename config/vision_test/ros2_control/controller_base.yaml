@@ -1,0 +1,13 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+    offline_broadcaster:
+      type: gary_controller/OfflineBroadcaster
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+
+offline_broadcaster:
+  ros__parameters:
+    diagnose_topic: /diagnostics
+    update_rate: 10.0
