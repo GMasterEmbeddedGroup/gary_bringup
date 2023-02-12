@@ -9,5 +9,6 @@ controller_manager:
 
 offline_broadcaster:
   ros__parameters:
+    interface_name: offline
     diagnose_topic: /diagnostics
-    update_rate: 10.0
+    pub_rate: 10.0
