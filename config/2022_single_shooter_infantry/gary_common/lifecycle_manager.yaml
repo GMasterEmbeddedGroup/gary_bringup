@@ -4,5 +4,6 @@ node_names:
 - /diagnostic_aggregator
 - /dr16_receiver
 - /socket_can_monitor
+- /chassis_solver
 respawn: true
 update_rate: 10.0
