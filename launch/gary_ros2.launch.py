@@ -50,6 +50,17 @@ def generate_launch_description():
         ]), launch_arguments={"robot_type": LaunchConfiguration("robot_type")}.items()
     )
 
+    gary_chassis_description = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('gary_bringup'),
+                "launch",
+                "gary_chassis",
+                'gary_chassis.launch.py',
+            ])
+        ]), launch_arguments={"robot_type": LaunchConfiguration("robot_type")}.items()
+    )
+
     ros2_control_description = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
@@ -80,6 +91,7 @@ def generate_launch_description():
         gary_common_description,
         gary_can_description,
         gary_serial_description,
+        gary_chassis_description,
         ros2_control_description,
         debug_description,
     ]
