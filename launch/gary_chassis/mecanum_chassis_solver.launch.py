@@ -12,23 +12,23 @@ def generate_launch_description():
 
     robot_type_arg = DeclareLaunchArgument("robot_type")
 
-    chassis_solver_params = PathJoinSubstitution(
+    mecanum_chassis_solver_params = PathJoinSubstitution(
         [
             FindPackageShare("gary_bringup"),
             "config",
             LaunchConfiguration("robot_type"),
             "gary_chassis",
-            "chassis_solver.yaml",
+            "mecanum_chassis_solver.yaml",
         ]
     )
 
-    chassis_solver = LoadComposableNodes(
+    mecanum_chassis_solver = LoadComposableNodes(
         target_container='/ComponentManager',
         composable_node_descriptions=[
             ComposableNode(
                 package='gary_chassis',
-                plugin='gary_chassis::ChassisSolver',
-                parameters=[chassis_solver_params],
+                plugin='gary_chassis::MecanumChassisSolver',
+                parameters=[mecanum_chassis_solver_params],
             ),
         ],
         condition=IfCondition(PythonExpression(
@@ -38,7 +38,7 @@ def generate_launch_description():
                  "config",
                  LaunchConfiguration("robot_type"),
                  "gary_chassis",
-                 "chassis_solver.yaml"
+                 "mecanum_chassis_solver.yaml"
              ]),
              "\")"]
         ))
@@ -46,7 +46,7 @@ def generate_launch_description():
 
     description = [
         robot_type_arg,
-        chassis_solver,
+        mecanum_chassis_solver,
     ]
 
     return LaunchDescription(description)

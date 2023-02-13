@@ -10,13 +10,13 @@ def generate_launch_description():
 
     robot_type_arg = DeclareLaunchArgument("robot_type")
 
-    chassis_solver_description = IncludeLaunchDescription(
+    mecanum_chassis_solver_description = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
                 FindPackageShare('gary_bringup'),
                 "launch",
                 "gary_chassis",
-                'chassis_solver.launch.py',
+                'mecanum_chassis_solver.launch.py',
             ])
         ]),
         launch_arguments={"robot_type": LaunchConfiguration("robot_type")}.items(),
@@ -24,7 +24,7 @@ def generate_launch_description():
 
     description = [
         robot_type_arg,
-        chassis_solver_description,
+        mecanum_chassis_solver_description,
     ]
 
     return LaunchDescription(description)
