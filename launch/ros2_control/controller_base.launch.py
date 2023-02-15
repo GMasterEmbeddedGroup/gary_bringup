@@ -61,16 +61,20 @@ def generate_launch_description():
         package="controller_manager",
         executable="spawner.py",
         arguments=["offline_broadcaster", "--controller-manager", "/controller_manager",
-                   "--controller-manager-timeout", "30"],
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
         condition=config_found,
+        respawn=True,
     )
 
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner.py",
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager",
-                   "--controller-manager-timeout", "30"],
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
         condition=config_found,
+        respawn=True,
     )
 
     description = [

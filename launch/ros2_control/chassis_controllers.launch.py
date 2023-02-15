@@ -22,7 +22,9 @@ def generate_launch_description():
                    "--controller-manager", "/controller_manager",
                    "--param-file", controllers_params,
                    "--controller-type", "gary_controller/PIDController",
-                   "--controller-manager-timeout", "30"],
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
+        respawn=True,
     )
 
     chassis_lb_pid_spawner = Node(
@@ -32,7 +34,9 @@ def generate_launch_description():
                    "--controller-manager", "/controller_manager",
                    "--param-file", controllers_params,
                    "--controller-type", "gary_controller/PIDController",
-                   "--controller-manager-timeout", "30"],
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
+        respawn=True,
     )
 
     chassis_rf_pid_spawner = Node(
@@ -42,7 +46,9 @@ def generate_launch_description():
                    "--controller-manager", "/controller_manager",
                    "--param-file", controllers_params,
                    "--controller-type", "gary_controller/PIDController",
-                   "--controller-manager-timeout", "30"],
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
+        respawn=True,
     )
 
     chassis_rb_pid_spawner = Node(
@@ -52,7 +58,9 @@ def generate_launch_description():
                    "--controller-manager", "/controller_manager",
                    "--param-file", controllers_params,
                    "--controller-type", "gary_controller/PIDController",
-                   "--controller-manager-timeout", "30"],
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
+        respawn=True,
     )
 
     description = [
