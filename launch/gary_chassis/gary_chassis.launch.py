@@ -22,9 +22,22 @@ def generate_launch_description():
         launch_arguments={"robot_type": LaunchConfiguration("robot_type")}.items(),
     )
 
+    chassis_teleop_description = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                FindPackageShare('gary_bringup'),
+                "launch",
+                "gary_chassis",
+                'chassis_teleop.launch.py',
+            ])
+        ]),
+        launch_arguments={"robot_type": LaunchConfiguration("robot_type")}.items(),
+    )
+
     description = [
         robot_type_arg,
         mecanum_chassis_solver_description,
+        chassis_teleop_description,
     ]
 
     return LaunchDescription(description)
