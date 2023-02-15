@@ -1,0 +1,6 @@
+cmd_topic: /mecanum_chassis_solver/cmd_vel
+diagnostic_topic: /diagnostics_agg
+remote_control: /remote_control
+rotate_max_speed: 2.0
+x_max_speed: 2.0
+y_max_speed: 2.0
