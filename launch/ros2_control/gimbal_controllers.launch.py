@@ -23,11 +23,36 @@ def generate_launch_description():
                    "--controller-manager", "/controller_manager",
                    "--param-file", controllers_params,
                    "--controller-type", "imu_sensor_broadcaster/IMUSensorBroadcaster",
-                   "--controller-manager-timeout", "30"],
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
+    )
+
+    gimbal_pitch_pid_spawner = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["gimbal_pitch_pid",
+                   "--controller-manager", "/controller_manager",
+                   "--param-file", controllers_params,
+                   "--controller-type", "gary_controller/DualLoopPIDControllerWithFilter",
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
+    )
+
+    gimbal_yaw_pid_spawner = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["gimbal_yaw_pid",
+                   "--controller-manager", "/controller_manager",
+                   "--param-file", controllers_params,
+                   "--controller-type", "gary_controller/DualLoopPIDControllerWithFilter",
+                   "--controller-manager-timeout", "1",
+                   "--unload-on-kill"],
     )
 
     description = [
         gimbal_imu_broadcaster_spawner,
+        gimbal_pitch_pid_spawner,
+        gimbal_yaw_pid_spawner,
     ]
 
     return LaunchDescription(description)

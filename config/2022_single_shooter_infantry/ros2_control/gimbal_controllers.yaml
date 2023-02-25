@@ -2,3 +2,43 @@
   ros__parameters:
     sensor_name: gimbal_imu
     frame_id: gimbal_imu
+
+/gimbal_pitch_pid:
+  ros__parameters:
+    inner_command_interface: gimbal_pitch/effort
+    inner_state_interface: gimbal_pitch/velocity
+    inner_kp: 1.0
+    inner_ki: 0.0
+    inner_kd: 0.0
+    inner_max_out: 10.0
+    inner_max_iout: 2.0
+    inner_p_filter_coefficient: 0.0
+    inner_d_filter_coefficient: 0.0
+    outer_state_interface: gimbal_pitch/position
+    outer_kp: 1.0
+    outer_ki: 0.0
+    outer_kd: 0.0
+    outer_max_out: 2.0
+    outer_max_iout: 1.0
+    outer_p_filter_coefficient: 0.0
+    outer_d_filter_coefficient: 0.0
+
+/gimbal_yaw_pid:
+  ros__parameters:
+    inner_command_interface: gimbal_yaw/effort
+    inner_state_interface: gimbal_yaw/velocity
+    inner_kp: 1.0
+    inner_ki: 0.0
+    inner_kd: 0.0
+    inner_max_out: 10.0
+    inner_max_iout: 2.0
+    inner_p_filter_coefficient: 0.0
+    inner_d_filter_coefficient: 0.0
+    outer_state_interface: gimbal_yaw/position
+    outer_kp: 1.0
+    outer_ki: 0.0
+    outer_kd: 0.0
+    outer_max_out: 2.0
+    outer_max_iout: 1.0
+    outer_p_filter_coefficient: 0.0
+    outer_d_filter_coefficient: 0.0
