@@ -25,6 +25,7 @@ def generate_launch_description():
                    "--controller-type", "imu_sensor_broadcaster/IMUSensorBroadcaster",
                    "--controller-manager-timeout", "1",
                    "--unload-on-kill"],
+        respawn=True,
     )
 
     gimbal_pitch_pid_spawner = Node(
@@ -36,6 +37,7 @@ def generate_launch_description():
                    "--controller-type", "gary_controller/DualLoopPIDControllerWithFilter",
                    "--controller-manager-timeout", "1",
                    "--unload-on-kill"],
+        respawn=True,
     )
 
     gimbal_yaw_pid_spawner = Node(
@@ -47,6 +49,7 @@ def generate_launch_description():
                    "--controller-type", "gary_controller/DualLoopPIDControllerWithFilter",
                    "--controller-manager-timeout", "1",
                    "--unload-on-kill"],
+        respawn=True,
     )
 
     description = [
