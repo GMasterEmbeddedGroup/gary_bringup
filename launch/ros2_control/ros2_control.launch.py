@@ -22,7 +22,18 @@ def generate_launch_description():
         launch_arguments={
             "urdf_name": PythonExpression(["'", LaunchConfiguration('robot_type'), ".urdf'"]),
             "robot_type": LaunchConfiguration("robot_type"),
-        }.items()
+        }.items(),
+        condition=IfCondition(PythonExpression(
+            ["__import__('os').path.exists(\"",
+             PathJoinSubstitution([
+                 FindPackageShare("gary_bringup"),
+                 "config",
+                 LaunchConfiguration("robot_type"),
+                 "ros2_control",
+                 "controller_base.yaml"
+             ]),
+             "\")"]
+        ))
     )
 
     chassis_controllers_description = IncludeLaunchDescription(

@@ -1,16 +1,31 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.conditions import IfCondition
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration, PythonExpression
+from launch.actions import DeclareLaunchArgument, LogInfo, TimerAction
+from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 
-def generate_launch_description():
+def controller_spawner(controller_name: str, controller_type: str, delay=0.0, condition=1):
+    if condition == 1:
+        return Node(
+            package="controller_manager",
+            executable="spawner.py",
+            arguments=[controller_name,
+                       "--controller-manager", "/controller_manager",
+                       "--controller-type", controller_type,
+                       ],
+            on_exit=lambda event, context: TimerAction(
+                period=delay,
+                actions=[LogInfo(msg="{} spawn failed, retry in {} seconds".format(controller_name.strip(), delay)),
+                         controller_spawner(controller_name, controller_type, delay + 1.0, event.returncode)],
+            )
+        )
+    else:
+        return LogInfo(msg="{} spawn successfully".format(controller_name.strip()))
 
-    urdf_name_arg = DeclareLaunchArgument("urdf_name")
 
+def controller_manager():
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
@@ -38,50 +53,21 @@ def generate_launch_description():
         ]
     )
 
-    config_found = IfCondition(PythonExpression(
-                    ["__import__('os').path.exists(\"",
-                     PathJoinSubstitution([
-                         FindPackageShare("gary_bringup"),
-                         "config",
-                         LaunchConfiguration("robot_type"),
-                         "ros2_control",
-                         "controller_base.yaml"
-                     ]),
-                     "\")"]
-                    ))
-
-    controller_manager = Node(
+    return Node(
         package="controller_manager",
         executable="ros2_control_node",
         parameters=[robot_description, controller_manager_params],
-        condition=config_found,
     )
 
-    offline_broadcaster_spawner = Node(
-        package="controller_manager",
-        executable="spawner.py",
-        arguments=["offline_broadcaster", "--controller-manager", "/controller_manager",
-                   "--controller-manager-timeout", "1",
-                   "--unload-on-kill"],
-        condition=config_found,
-        respawn=True,
-    )
 
-    joint_state_broadcaster_spawner = Node(
-        package="controller_manager",
-        executable="spawner.py",
-        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager",
-                   "--controller-manager-timeout", "1",
-                   "--unload-on-kill"],
-        condition=config_found,
-        respawn=True,
-    )
+def generate_launch_description():
+    urdf_name_arg = DeclareLaunchArgument("urdf_name")
 
     description = [
         urdf_name_arg,
-        controller_manager,
-        offline_broadcaster_spawner,
-        joint_state_broadcaster_spawner,
+        controller_manager(),
+        controller_spawner("offline_broadcaster", "gary_controller/OfflineBroadcaster"),
+        controller_spawner("joint_state_broadcaster", "joint_state_broadcaster/JointStateBroadcaster"),
     ]
 
     return LaunchDescription(description)
