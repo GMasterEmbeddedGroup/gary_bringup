@@ -1,14 +1,16 @@
-controller_manager:
-  ros__parameters:
-    update_rate: 1000
-    offline_broadcaster:
-      type: gary_controller/OfflineBroadcaster
-    joint_state_broadcaster:
-      type: joint_state_broadcaster/JointStateBroadcaster
-
-
 offline_broadcaster:
   ros__parameters:
+    controller_type: gary_controller/OfflineBroadcaster
     interface_name: offline
     diagnose_topic: /diagnostics
     pub_rate: 10.0
+
+joint_state_broadcaster:
+  ros__parameters:
+    controller_type: joint_state_broadcaster/JointStateBroadcaster
+
+gimbal_imu_broadcaster:
+  ros__parameters:
+    controller_type: imu_sensor_broadcaster/IMUSensorBroadcaster
+    sensor_name: gimbal_imu
+    frame_id: gimbal_imu

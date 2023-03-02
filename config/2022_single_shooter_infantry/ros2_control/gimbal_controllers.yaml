@@ -1,10 +1,12 @@
-/gimbal_imu_broadcaster:
+gimbal_imu_broadcaster:
   ros__parameters:
+    controller_type: imu_sensor_broadcaster/IMUSensorBroadcaster
     sensor_name: gimbal_imu
     frame_id: gimbal_imu
 
-/gimbal_pitch_pid:
+gimbal_pitch_pid:
   ros__parameters:
+    controller_type: gary_controller/DualLoopPIDControllerWithFilter
     inner_command_interface: gimbal_pitch/effort
     inner_state_interface: gimbal_pitch/velocity
     inner_kp: 1.0
@@ -23,8 +25,9 @@
     outer_p_filter_coefficient: 0.0
     outer_d_filter_coefficient: 0.0
 
-/gimbal_yaw_pid:
+gimbal_yaw_pid:
   ros__parameters:
+    controller_type: gary_controller/DualLoopPIDControllerWithFilter
     inner_command_interface: gimbal_yaw/effort
     inner_state_interface: gimbal_yaw/velocity
     inner_kp: 1.0

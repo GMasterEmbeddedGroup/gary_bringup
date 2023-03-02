@@ -1,4 +1,0 @@
-/gimbal_imu_broadcaster:
-  ros__parameters:
-    sensor_name: gimbal_imu
-    frame_id: gimbal_imu
