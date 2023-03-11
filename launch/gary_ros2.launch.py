@@ -5,7 +5,7 @@ import yaml
 from launch import LaunchDescription, LaunchContext
 from launch.substitutions import LaunchConfiguration, Command, PathJoinSubstitution, FindExecutable
 from launch.actions import DeclareLaunchArgument, OpaqueFunction, LogInfo, TimerAction
-from launch_ros.actions import Node, LoadComposableNodes
+from launch_ros.actions import Node, ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
 from launch_ros.substitutions import FindPackageShare
 
@@ -90,18 +90,18 @@ def glob_nodes(context: LaunchContext, robot_type: LaunchConfiguration):
             if not os.path.isfile(config_file_path) or package_name == "ros2_control":
                 continue
             # load node
-            node = LoadComposableNodes(
-                target_container='/ComponentManager',
-                composable_node_descriptions=[
-                    ComposableNode(
-                        package=package_name,
-                        plugin=package_name + '::' + config_file,
-                        parameters=[config_file_path]
-                    ),
-                ],
+            node = ComposableNode(
+                package=package_name,
+                plugin=package_name + '::' + config_file,
+                parameters=[config_file_path]
             )
             nodes.append(node)
-    return nodes
+
+    return [ComposableNodeContainer(name="ComponentManager", namespace="",
+                                    package='rclcpp_components',
+                                    executable='component_container_mt',
+                                    composable_node_descriptions=nodes,
+                                    )]
 
 
 def glob_controllers(context: LaunchContext, robot_type: LaunchConfiguration):
@@ -198,12 +198,6 @@ def generate_launch_description():
 
     config_file_check = OpaqueFunction(function=check_config_file_exist, args=[LaunchConfiguration("robot_type")])
     description.append(config_file_check)
-
-    component_container = Node(
-        package='rclcpp_components',
-        executable='component_container_mt',
-    )
-    description.append(component_container)
 
     nodes = OpaqueFunction(function=glob_nodes, args=[LaunchConfiguration("robot_type")])
     description.append(nodes)
