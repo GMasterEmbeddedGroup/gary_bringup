@@ -1,5 +1,5 @@
 diagnose_topic: /diagnostics
 monitored_can_bus:
-- can3-3-1
-- can3-3-2
+- can-chassis
+- can-gimbal
 update_freq: 10.0
