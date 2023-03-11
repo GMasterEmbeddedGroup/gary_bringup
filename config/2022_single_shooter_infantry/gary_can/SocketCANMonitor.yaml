@@ -3,3 +3,4 @@ monitored_can_bus:
 - can-chassis
 - can-gimbal
 update_freq: 10.0
+overload_threshold: 0.80
