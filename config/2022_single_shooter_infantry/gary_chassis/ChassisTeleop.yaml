@@ -1,4 +1,4 @@
-cmd_topic: /mecanum_chassis_solver/cmd_vel
+cmd_topic: /cmd_vel
 remote_control: /remote_control
 x_max_speed: 4.0
 y_max_speed: 4.0
