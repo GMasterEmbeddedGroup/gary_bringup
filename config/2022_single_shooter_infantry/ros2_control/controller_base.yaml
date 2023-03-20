@@ -1,7 +1,9 @@
-offline_broadcaster:
+hardware_monitor:
   ros__parameters:
-    controller_type: gary_controller/OfflineBroadcaster
-    interface_name: offline
+    controller_type: gary_controller/HardwareMonitor
+    offline_interface_name: offline
+    temperature_interface_name: temperature
+    overheat_threshold: 80.0
     diagnose_topic: /diagnostics
     pub_rate: 10.0
 
