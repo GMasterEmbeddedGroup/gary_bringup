@@ -172,7 +172,7 @@ def glob_controllers(context: LaunchContext, robot_type: LaunchConfiguration):
     return controllers
 
 
-def controller_spawner(controller_name: str, delay=0.0, condition=1):
+def controller_spawner(controller_name: str, condition=1):
     if condition == 1:
         return Node(
             package="controller_manager",
@@ -181,9 +181,8 @@ def controller_spawner(controller_name: str, delay=0.0, condition=1):
                        "--controller-manager", "/controller_manager",
                        ],
             on_exit=lambda event, context: TimerAction(
-                period=delay,
-                actions=[LogInfo(msg="{} spawn failed, retry in {} seconds".format(controller_name.strip(), delay)),
-                         controller_spawner(controller_name, delay + 1.0, event.returncode)],
+                period=0.0,
+                actions=[controller_spawner(controller_name, event.returncode)],
             )
         )
     else:
