@@ -8,5 +8,7 @@ node_names:
 - /chassis_teleop
 - /gimbal_control
 - /gimbal_teleop
+- /dr16_forwarder
+- /shooter_controller
 respawn: false
 update_rate: 10.0
