@@ -1,0 +1,7 @@
+diagnose_topic: /diagnostics
+monitored_can_bus:
+- can-chassis
+- can-liftup-1
+- can-liftup-2
+update_freq: 10.0
+overload_threshold: 0.80
