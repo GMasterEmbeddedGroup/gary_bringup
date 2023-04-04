@@ -1,6 +1,6 @@
-gimbal_pitch_max: 0.72477
-gimbal_pitch_min: -0.45125
-gimbal_yaw_ecd_transform: -1.933910307
+gimbal_pitch_max: 0.434223
+gimbal_pitch_min: -0.56866
+gimbal_yaw_ecd_transform: -1.6280826
 imu_subscribe_topic: /gimbal_imu_broadcaster/imu
 joint_subscribe_topic: /dynamic_joint_states
 pitch_publish_topic: /gimbal_pitch_pid/cmd
