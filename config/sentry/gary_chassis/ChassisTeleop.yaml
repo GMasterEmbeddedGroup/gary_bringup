@@ -11,3 +11,4 @@ y_max_accel: 2.0
 use_break: false
 update_rate: 200.0
 yaw_encoder_bias: 1.6280826
+motor_yaw_hw_id: gimbal_yaw
