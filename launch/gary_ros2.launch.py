@@ -137,7 +137,10 @@ def glob_controllers(context: LaunchContext, robot_type: LaunchConfiguration):
                     {'type': controller_config[controller_name]['ros__parameters']['controller_type']})
 
                 # add controller spawner
-                controllers.append(controller_spawner(controller_name))
+                if "initial_state" in controller_config[controller_name]['ros__parameters']:
+                    controllers.append(controller_spawner(controller_name, 1))
+                else:
+                    controllers.append(controller_spawner(controller_name, 0))
 
     # robot_description
     robot_description_content = Command(
@@ -172,17 +175,23 @@ def glob_controllers(context: LaunchContext, robot_type: LaunchConfiguration):
     return controllers
 
 
-def controller_spawner(controller_name: str, condition=1):
+def controller_spawner(controller_name: str, stopped=0, condition=1):
     if condition == 1:
+        args = [controller_name,
+                "--controller-manager", "/controller_manager",
+                ]
+        if stopped == 1:
+            args = [controller_name,
+                    "--controller-manager", "/controller_manager",
+                    "--stopped"
+                    ]
         return Node(
             package="controller_manager",
             executable="spawner.py",
-            arguments=[controller_name,
-                       "--controller-manager", "/controller_manager",
-                       ],
+            arguments=args,
             on_exit=lambda event, context: TimerAction(
                 period=0.0,
-                actions=[controller_spawner(controller_name, event.returncode)],
+                actions=[controller_spawner(controller_name, stopped, event.returncode)],
             )
         )
     else:
