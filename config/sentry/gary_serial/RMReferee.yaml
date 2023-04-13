@@ -1,0 +1,2 @@
+serial_port: /dev/ttyREFEREE0
+update_freq: 100.0

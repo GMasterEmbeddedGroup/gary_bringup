@@ -3,9 +3,11 @@ diagnose_topic: /diagnostics
 node_names:
 - /diagnostic_aggregator
 - /dr16_receiver
+- /rm_referee
 - /socket_can_monitor
 - /omni_chassis_solver
 - /chassis_teleop
+- /chassis_power_control
 - /gimbal_control
 - /gimbal_teleop
 respawn: false
