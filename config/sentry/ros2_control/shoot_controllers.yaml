@@ -25,8 +25,8 @@ trigger_pid:
     controller_type: gary_controller/PIDController
     command_interface: trigger/raw
     state_interface: trigger/rpm
-    kp: 2.327105669325773
-    ki: 0.001454441043328608
+    kp: 15.0
+    ki: 0.0
     kd: 0.0
     max_out: 10000.0
     max_iout: 9000.0

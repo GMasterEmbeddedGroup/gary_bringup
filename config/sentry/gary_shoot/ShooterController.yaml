@@ -8,3 +8,4 @@ trigger_wheel_diag_name: trigger
 trigger_wheel_receive_topic: /rc_trigger_pid_set
 trigger_wheel_send_topic: /trigger_pid/cmd
 update_freq: 100.0
+reverse_pid_set: 3000.0
