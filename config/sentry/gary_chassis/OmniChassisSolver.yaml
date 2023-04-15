@@ -1,4 +1,4 @@
-cmd_topic: /cmd_vel_limited
+cmd_topic: /chassis/cmd_vel_limited
 output_lf_topic: /chassis_lf_pid/cmd
 output_lb_topic: /chassis_lb_pid/cmd
 output_rf_topic: /chassis_rf_pid/cmd

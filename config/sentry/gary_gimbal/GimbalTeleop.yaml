@@ -3,6 +3,6 @@ gimbal_pitch_min: -0.56866
 k_autoaim: 0.2
 k_mouse: 0.08
 k_rc: 0.08
-pitch_set_topic: /gimbal_pitch_set
+pitch_set_topic: /gimbal/gimbal_pitch_set
 remote_control_topic: /remote_control
-yaw_set_topic: /gimbal_yaw_set
+yaw_set_topic: /gimbal/gimbal_yaw_set

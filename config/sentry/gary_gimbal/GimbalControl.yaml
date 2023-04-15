@@ -5,6 +5,6 @@ imu_subscribe_topic: /gimbal_imu_broadcaster/imu
 joint_subscribe_topic: /dynamic_joint_states
 pitch_publish_topic: /gimbal_pitch_pid/cmd
 pitch_soft_limit: 0.05
-pitch_subscribe_topic: /gimbal_pitch_set
+pitch_subscribe_topic: /gimbal/gimbal_pitch_set
 yaw_publish_topic: /gimbal_yaw_pid/cmd
-yaw_subscribe_topic: /gimbal_yaw_set
+yaw_subscribe_topic: /gimbal/gimbal_yaw_set
