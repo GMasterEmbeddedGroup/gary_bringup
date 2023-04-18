@@ -6,9 +6,9 @@ node_names:
 - /rm_referee
 - /socket_can_monitor
 - /omni_chassis_solver
-- /chassis_teleop
+- /chassis_autonomous
 - /chassis_power_control
 - /gimbal_control
-- /gimbal_teleop
+- /gimbal_autonomous
 respawn: false
 update_rate: 10.0

@@ -6,3 +6,4 @@ k_rc: 0.08
 pitch_set_topic: /gimbal/gimbal_pitch_set
 remote_control_topic: /remote_control
 yaw_set_topic: /gimbal/gimbal_yaw_set
+rotate_time: 4.0
