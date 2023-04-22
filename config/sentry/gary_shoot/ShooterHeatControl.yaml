@@ -1,0 +1,5 @@
+heat_control_level: 150.0
+heat_min_level: 40.0
+power_heat_topic: /referee/power_heat
+trigger_pub_topic: /shooter/rc_trigger_set_limited
+trigger_sub_topic: /shooter/rc_trigger_set

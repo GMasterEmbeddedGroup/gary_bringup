@@ -8,7 +8,9 @@ node_names:
 - /omni_chassis_solver
 - /chassis_autonomous
 - /chassis_power_control
-- /gimbal_control
 - /gimbal_autonomous
+- /dr16_forwarder
+- /shooter_controller
+- /shooter_heat_control
 respawn: false
 update_rate: 10.0
