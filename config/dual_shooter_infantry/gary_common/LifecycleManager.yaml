@@ -14,6 +14,7 @@ node_names:
 - /shooter_controller
 - /shooter_heat_control
 - /barrel_switcher
+- /cover_controller
 - /rm_referee
 respawn: false
 update_rate: 10.0
