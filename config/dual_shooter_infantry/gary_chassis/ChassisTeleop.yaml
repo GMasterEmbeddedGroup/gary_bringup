@@ -1,4 +1,4 @@
-twist_pub_topic: /cmd_vel
+twist_pub_topic: /chassis/cmd_vel
 remote_control_topic: /remote_control
 joint_topic: /dynamic_joint_states
 gimbal_follow_set_topic: /gimbal_follow_pid/cmd

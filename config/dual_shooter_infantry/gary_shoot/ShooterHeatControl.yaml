@@ -1,0 +1,4 @@
+heat_max_level: 30.0
+power_heat_topic: /referee/power_heat
+trigger_pub_topic: /shooter/rc_trigger_set_limited
+trigger_sub_topic: /shooter/rc_trigger_set

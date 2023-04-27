@@ -1,0 +1,4 @@
+effort_max: 0.6
+effort_min: 0.2
+delay_time_ms: 500.0
+switch_time_ms: 400.0
