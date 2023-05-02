@@ -46,6 +46,7 @@ cover_switch_pid_effort:
   ros__parameters:
     controller_type: gary_controller/PIDController
     command_interface: cover/effort
+    initial_state: inactive
 #    state_interface: cover/effort
     kp: 0.9
     ki: 0.0
