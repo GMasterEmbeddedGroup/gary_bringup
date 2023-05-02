@@ -42,24 +42,24 @@ barrel_switch_pid_effort:
     max_out: 0.8
     max_iout: 0.0
 
-cover_switch_pid_effort:
-  ros__parameters:
-    controller_type: gary_controller/PIDController
-    command_interface: cover/effort
-    initial_state: inactive
-#    state_interface: cover/effort
-    kp: 0.9
-    ki: 0.0
-    kd: 0.0
-    max_out: 0.8
-    max_iout: 0.0
+#cover_switch_pid_effort:
+#  ros__parameters:
+#    controller_type: gary_controller/PIDController
+#    command_interface: cover/effort
+#    initial_state: inactive
+##    state_interface: cover/effort
+#    kp: 0.9
+#    ki: 0.0
+#    kd: 0.0
+#    max_out: 0.8
+#    max_iout: 0.0
 
 cover_switch_pid_position:
   ros__parameters:
     controller_type: gary_controller/PIDController
     command_interface: cover/effort
     state_interface: cover/position
-    kp: 0.01
+    kp: 0.8
     ki: 0.0
     kd: 0.0
     max_out: 0.75
