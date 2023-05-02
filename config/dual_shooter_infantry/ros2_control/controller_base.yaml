@@ -10,3 +10,10 @@ hardware_monitor:
 joint_state_broadcaster:
   ros__parameters:
     controller_type: joint_state_broadcaster/JointStateBroadcaster
+
+calibration_controller:
+  ros__parameters:
+    controller_type: gary_controller/CalibrationController
+    interface_name: reset_position
+    motor_names:
+      - cover
