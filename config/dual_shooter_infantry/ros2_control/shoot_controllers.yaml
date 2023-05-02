@@ -59,8 +59,8 @@ cover_switch_pid_position:
     controller_type: gary_controller/PIDController
     command_interface: cover/effort
     state_interface: cover/position
-    kp: 0.8
+    kp: 0.5
     ki: 0.0
     kd: 0.0
     max_out: 0.75
-    max_iout: 0.0
+    max_iout: 30.0
