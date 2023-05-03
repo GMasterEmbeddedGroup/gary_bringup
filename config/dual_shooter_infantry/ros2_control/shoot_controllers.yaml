@@ -61,6 +61,6 @@ cover_switch_pid_position:
     state_interface: cover/position
     kp: 0.5
     ki: 0.0
-    kd: 0.0
+    kd: 30.0
     max_out: 0.75
-    max_iout: 30.0
+    max_iout: 0.0
