@@ -9,3 +9,4 @@ trigger_wheel_receive_topic: /shooter/rc_trigger_set_limited
 trigger_wheel_send_topic: /trigger_pid/cmd
 update_freq: 100.0
 reverse_pid_set: 3000.0
+single_shoot: false
