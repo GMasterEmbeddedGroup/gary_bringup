@@ -17,9 +17,9 @@ gimbal_pitch_pid:
     inner_p_filter_coefficient: 0.0
     inner_d_filter_coefficient: 0.99995
     outer_state_interface: gimbal_imu/euler.z
-    outer_kp: 15.0
+    outer_kp: -15.0
     outer_ki: 0.0
-    outer_kd: 0.7
+    outer_kd: -0.7
     outer_max_out: 10.0
     outer_max_iout: 0.0
     outer_p_filter_coefficient: 0.0
