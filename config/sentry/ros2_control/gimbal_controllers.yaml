@@ -30,15 +30,15 @@ gimbal_yaw_pid:
     controller_type: gary_controller/DualLoopPIDControllerWithFilter
     inner_command_interface: gimbal_yaw/raw
     inner_state_interface: gimbal_imu/angular_velocity.z
-    inner_kp: 1000.0
+    inner_kp: -1000.0
     inner_ki: 0.0
-    inner_kd: -0.0
+    inner_kd: 0.0
     inner_max_out: 1000.0
     inner_max_iout: 500.0
     inner_p_filter_coefficient: 0.95122
     inner_d_filter_coefficient: 0.0
     outer_state_interface: gimbal_imu/euler_sum.x
-    outer_kp: -12.0
+    outer_kp: 12.0
     outer_ki: 0.01
     outer_kd: 5.0
     outer_max_out: 30.0
