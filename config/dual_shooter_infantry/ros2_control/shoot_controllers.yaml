@@ -25,7 +25,6 @@ trigger_pid:
     controller_type: gary_controller/PIDController
     command_interface: trigger/raw
     state_interface: trigger/rpm
-    initial_state: inactive
     kp: 2.327105669325773
     ki: 0.001454441043328608
     kd: 0.0
@@ -37,6 +36,7 @@ trigger_position_pid:
     controller_type: gary_controller/PIDController
     command_interface: trigger/raw
     state_interface: trigger/position
+    initial_state: inactive
     kp: 2.327105669325773
     ki: 0.001454441043328608
     kd: 0.0
