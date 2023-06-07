@@ -1,0 +1,11 @@
+gimbal_pitch_max: 0.35
+gimbal_pitch_min: -0.5
+k_autoaim: 1.0
+k_mouse: 0.08
+k_rc: 0.08
+pitch_set_topic: /gimbal_pitch_pid/cmd
+#pitch_set_topic: /gimbal/gimbal_pitch_set
+remote_control_topic: /remote_control
+#yaw_set_topic: /gimbal/gimbal_yaw_set
+yaw_set_topic: /gimbal_yaw_pid/cmd
+rotate_time: 5.17
