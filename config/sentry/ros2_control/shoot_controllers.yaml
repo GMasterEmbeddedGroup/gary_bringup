@@ -41,3 +41,14 @@ barrel_switch_pid_effort:
     kd: 0.0
     max_out: 0.8
     max_iout: 0.0
+
+barrel_switch_position:
+  ros__parameters:
+    controller_type: gary_controller/PIDController
+#    command_interface: switch/effort
+    state_interface: switch/position
+    kp: 0.0
+    ki: 0.0
+    kd: 0.0
+    max_out: 0.0
+    max_iout: 0.0
