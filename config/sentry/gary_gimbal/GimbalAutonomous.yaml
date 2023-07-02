@@ -1,5 +1,5 @@
-gimbal_pitch_max: 0.35
-gimbal_pitch_min: -0.5
+gimbal_pitch_max: 0.088
+gimbal_pitch_min: -0.21
 k_autoaim: 1.0
 k_mouse: 0.08
 k_rc: 0.08
