@@ -9,9 +9,9 @@ gimbal_pitch_pid:
     controller_type: gary_controller/DualLoopPIDControllerWithFilter
     inner_command_interface: gimbal_pitch/raw
     inner_state_interface: gimbal_imu/angular_velocity.y
-    inner_kp: -6000.0
-    inner_ki: -45.0
-    inner_kd: -35000000.0
+    inner_kp: 6000.0
+    inner_ki: 45.0
+    inner_kd: 35000000.0
     inner_max_out: 30000.0
     inner_max_iout: 15000.0
     inner_p_filter_coefficient: 0.0
@@ -19,7 +19,7 @@ gimbal_pitch_pid:
     outer_state_interface: gimbal_imu/euler.y
     outer_kp: 15.0
     outer_ki: 0.0
-    outer_kd: -0.7
+    outer_kd: 0.7
     outer_max_out: 10.0
     outer_max_iout: 0.0
     outer_p_filter_coefficient: 0.0
