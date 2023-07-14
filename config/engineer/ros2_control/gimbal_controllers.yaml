@@ -1,0 +1,115 @@
+gimbal_left_pid:
+  ros__parameters:
+    controller_type: gary_controller/DualLoopPIDController
+    inner_command_interface: gimbal_left/effort
+    inner_state_interface: gimbal_left/velocity
+    inner_kp: 1.0
+    inner_ki: 0.0
+    inner_kd: 0.0
+    inner_max_out: 0.8
+    inner_max_iout: 0.4
+    outer_state_interface: gimbal_left/position
+    outer_kp: 10.0
+    outer_ki: 0.0
+    outer_kd: 0.0
+    outer_max_out: 20.0
+    outer_max_iout: 5.0
+
+gimbal_right_pid:
+  ros__parameters:
+    controller_type: gary_controller/DualLoopPIDController
+    inner_command_interface: gimbal_right/effort
+    inner_state_interface: gimbal_right/velocity
+    inner_kp: 1.0
+    inner_ki: 0.0
+    inner_kd: 0.0
+    inner_max_out: 0.8
+    inner_max_iout: 0.4
+    outer_state_interface: gimbal_right/position
+    outer_kp: 10.0
+    outer_ki: 0.0
+    outer_kd: 0.0
+    outer_max_out: 20.0
+    outer_max_iout: 5.0
+
+gimbal_pitch_pid:
+  ros__parameters:
+    controller_type: gary_controller/DualLoopPIDControllerWithFilter
+    inner_command_interface: gimbal_pitch/effort
+    inner_state_interface: gimbal_pitch/velocity
+    inner_kp: 0.5
+    inner_ki: 0.001
+    inner_kd: 0.0
+    inner_max_out: 6.0
+    inner_max_iout: 3.0
+    inner_p_filter_coefficient: 0.95122
+    inner_d_filter_coefficient: 0.99995
+    outer_state_interface: gimbal_pitch/position
+    outer_kp: 20.0
+    outer_ki: 0.002
+    outer_kd: 0.0
+    outer_max_out: 5.0
+    outer_max_iout: 2.5
+    outer_p_filter_coefficient: 0.0
+    outer_d_filter_coefficient: 0.0
+
+gimbal_yaw_pid:
+  ros__parameters:
+    controller_type: gary_controller/DualLoopPIDControllerWithFilter
+    inner_command_interface: gimbal_yaw/effort
+    inner_state_interface: gimbal_yaw/velocity
+#    inner_kp: 1.5
+    inner_kp: 0.6
+    inner_ki: 0.0
+    inner_kd: 0.0
+    inner_max_out: 1.5
+    inner_max_iout: 0.75
+    inner_p_filter_coefficient: 0.9
+    inner_d_filter_coefficient: 0.0
+    outer_state_interface: gimbal_yaw/encoder
+#    outer_kp: 15.0
+    outer_kp: 5.0
+    outer_ki: 0.0
+    outer_kd: 0.0
+    outer_max_out: 10.0
+    outer_max_iout: 5.0
+    outer_p_filter_coefficient: 0.0
+    outer_d_filter_coefficient: 0.0
+
+gimbal_roll_pid:
+  ros__parameters:
+    controller_type: gary_controller/DualLoopPIDController
+    inner_command_interface: gimbal_roll/effort
+    inner_state_interface: gimbal_roll/velocity
+    inner_kp: 0.5
+    inner_ki: 0.0
+    inner_kd: 0.0
+    inner_max_out: 0.8
+    inner_max_iout: 0.4
+    outer_state_interface: gimbal_roll/position
+    outer_kp: 20.0
+    outer_ki: 0.0
+    outer_kd: 0.0
+    outer_max_out: 10.0
+    outer_max_iout: 5.0
+
+gimbal_arm_pid:
+  ros__parameters:
+    controller_type: gary_controller/DualLoopPIDControllerWithFilter
+    inner_command_interface: gimbal_arm/effort
+    inner_state_interface: gimbal_arm/velocity
+    inner_kp: 0.5
+    inner_ki: 0.001
+    inner_kd: 0.0
+    inner_max_out: 6.0
+    inner_max_iout: 3.0
+    inner_p_filter_coefficient: 0.95122
+    inner_d_filter_coefficient: 0.99995
+    outer_state_interface: gimbal_arm/position
+    outer_kp: 20.0
+    outer_ki: 0.002
+    outer_kd: 0.0
+    outer_max_out: 5.0
+    outer_max_iout: 2.5
+    outer_p_filter_coefficient: 0.0
+    outer_d_filter_coefficient: 0.0
