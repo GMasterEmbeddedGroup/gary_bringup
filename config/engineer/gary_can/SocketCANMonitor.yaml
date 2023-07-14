@@ -4,4 +4,4 @@ monitored_can_bus:
 - can-liftup
 - can-gimbal
 update_freq: 10.0
-overload_threshold: 0.90
+overload_threshold: 0.95
