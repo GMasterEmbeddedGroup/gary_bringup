@@ -1,0 +1,17 @@
+diag_freq: 10.0
+diagnose_topic: /diagnostics
+node_names:
+- /diagnostic_aggregator
+- /dr16_receiver
+- /rm_referee
+- /socket_can_monitor
+- /omni_chassis_solver
+- /chassis_autonomous
+- /chassis_power_control
+- /gimbal_autonomous
+- /dr16_forwarder
+- /shooter_controller
+- /shooter_heat_control
+- /barrel_switcher
+respawn: false
+update_rate: 10.0
